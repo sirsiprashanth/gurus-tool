@@ -33,6 +33,7 @@ $result = mysql_query("SELECT `user` FROM `login` WHERE `username`= '$username'"
 while($row = mysql_fetch_array($result)) {
 $usertype= $row['user'];
 }
+$_SESSION['login_usertype']=$usertype;
 mysql_close($connection); // Closing Connection
 }
 }

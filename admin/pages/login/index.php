@@ -1,9 +1,9 @@
 <?php
 include('login.php'); // Includes Login Script
 
-if(isset($_SESSION['login_user'])){
+if(isset($_SESSION['login_usertype'])){
 	
-	switch ($_SESSION['login_user']) {
+	switch ($_SESSION['login_usertype']) {
     case 'admin':
         header("location: profile.php");
         break;
