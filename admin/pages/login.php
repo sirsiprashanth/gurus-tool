@@ -33,6 +33,28 @@
 </head>
 
 <body>
+	
+	<?php
+		include('logincode.php'); // Includes Login Script
+		
+		if(isset($_SESSION['login_usertype'])){
+	
+				switch ($_SESSION['login_usertype']) {
+			    case 'admin':
+			        header("location: profile.php");
+			        break;
+			    case 'client':
+			        header("location: profile1.php");
+			        break;
+			    case 'editor':
+			        header("location: profile2.php");
+			        break;
+			    default:
+			        echo "None of the above";
+			}
+				
+			}
+	?>
 
     <div class="container">
         <div class="row">
@@ -42,13 +64,15 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" action="" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Username (E-mail)" name="username" type="email" autofocus>
+                                    <!--<input id="name" name="username" placeholder="username" type="text">-->
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <!--<input id="password" name="password" placeholder="**********" type="password">-->
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -56,7 +80,8 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                               <!-- <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>-->
+                               <input class="btn btn-lg btn-success btn-block" name="submit" type="submit" value="Login">
                             </fieldset>
                         </form>
                     </div>
